@@ -8,17 +8,14 @@ class Solution {
         while(low <= high){
             int guess = low + (high - low) /2;
 
-            if(nums[low] <= nums[guess]){
-                min = Math.min(min, nums[low]);
-
+            if(nums[guess] > nums[n-1]){
                 low = guess + 1;
             }else{
                 min = Math.min(min, nums[guess]);
-
                 high = guess - 1;
             }
         }
         
-        return min;
+        return min == Integer.MAX_VALUE ? -1 : min;
     }
 }
